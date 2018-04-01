@@ -31,4 +31,4 @@ gems:
   - jekyll-paginate
   - jekyll-gist
 
-theme: jekyll-theme-hacker
+theme: jekyll-theme-cayman
