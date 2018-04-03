@@ -11,7 +11,7 @@ baseurl: "/blog"                             # for example, '/blog' if your blog
 # SNS settings
 RSS: false
 weibo_username:     hunos
-zhihu_username:     435918939@qq.com
+# zhihu_username:     435918939@qq.com
 github_username:    tfl435918939
 # twitter_username:   tfl435918939
 #facebook_username:  huxpro
@@ -88,7 +88,7 @@ friends: [
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        title: "乱序",
-        href: "http://mida.re/"
+        title: "Qiu",
+        href: "https://lujunqiu.github.io/"
     }
 ]
