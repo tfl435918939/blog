@@ -1,0 +1,153 @@
+---
+layout:     post
+title:      "解读阿里一面面经-牛客网"
+subtitle:   " \"人生就像一场马拉松，跑到最后才是赢家。\""
+date:       2018-04-05 17:38:00
+author:     "Leon"
+header-img: "img/2018-04-03-posts-bg.jpg"
+catalog: true
+tags:
+    - 面经
+---
+
+> “Anyway, anyhow. ”
+
+
+## 来源
+
+[阿里一面面经 牛客网](https://www.nowcoder.com/discuss/68447)
+
+## 解答
+
+Maven中两个冲突包依赖其他包，如何处理？
+
+依赖冲突的产生：
+因为依赖的传递性。A->B->C(V1.1); A->D->C(V1.2)。如果依赖C有多个版本，就会产生冲突。
+
+Maven依赖选取原则：
+**最短路径**：A->B->C(V1.1)；A->B->E->C(V1.2)。依赖C的版本为V1.1。
+**最先声明**：A->B->C(V1.1); A->D->C(V1.2)。如果在A中先声明对B的依赖，则A对C的依赖为V1.1。
+
+**分析方法**：
+使用``dependency:tree``分析依赖。
+使用``mvn dependency:tree -Dverbose``查看更多信息，尤其是conflict信息。
+
+**解决方法**：
+缩短指定版本的路径/ exclude掉不想要的版本/ 将依赖声明为optional
+---
+
+pom.xml中有哪些配置？
+
+什么是Maven
+Maven是一个采用纯Java编写的开源项目管理工具, Maven采用了一种被称之为Project Object Model (POM)概念来管理项目，所有的项目配置信息都被定义在一个叫做POM.xml的文件中。
+**Maven是一款跨平台的项目管理工具，**是一个开源的项目。Maven主要服务于基于Java平台的项目构建、依赖管理和项目信息管理。
+
+POM怎么理解呢？
+
+我们使用Java是面向对象编程，对象就是我们的类，而Maven是**面向项目**，把我们的项目看做成是一个对象来进行管理。
+
+Maven可以管理项目的整个声明周期，包括清除、编译，测试，报告、打包、部署等等。
+
+自动构建项目
+- 软件开发： 可行性分析、需求分析、软件设计、软件开发、发布、运维
+- 软件构建： 软件已经开发完毕，需要构建成一个产品进行发布 构建步骤：
+- 清除--> 编译-->测试-->报告-->打包（jar\war）-->安装-->部署到远程**maven可以通过一个命令实现自动构建软件项目**
+
+pom文件：
+1.坐标的组成： groupId + artifactId+ version
+- groupId：组id ,机构名，公司名：好比公司的id，或者是公司包名 alibaba ——-》高德--》5.01版本
+- artifactId：构建物id ，产品名或者产品的id
+- version ：版本号
+1.jar包组成： artifactId-version.jar
+```
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- 指定当前pom的版本 -->
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- 一、项目的坐标信息-->
+  <groupId>反写的公司网址+项目名</groupId>
+  <artifactId>项目名+模块名</artifactId>
+  <!--
+    第一个o:大版本:号
+    第二个0：分支版本号
+    第三个0：小版本号
+    版本类型划分：1.SNAPSHOT(快照) 
+                  2.alpha（内测）
+                  3.beta（公测）
+                  4.Release（稳定）
+                  5.GA（正式）
+  -->
+  <version>0.0.1SNAPSHOT</version>
+  <!--maven项目打包方式：默认：jar，可指定war、zip、pom--->
+  <packaging></packaging>
+  <!--项目描述名-->
+  <name></name>
+  <!--项目地址-->
+  <url></url>
+  <!--项目描述-->
+  <description></description>
+  <!--开发人员信息-->
+  <developers></developers>
+  <!--许可证信息-->
+  <licenses></licenses>
+  <!--组织信息-->
+  <organization></organization>
+
+  <!--二、依赖列表-->
+  <dependencies>
+      <!--依赖坐标-->
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.10</version>
+          <type></type>
+          <!-- 依赖范围：test-->
+          <scope>test</scope>
+          <!--设置依赖是否可选:true/false默认是后者-->
+          <optional>false</optional>
+          <!--排除依赖传递列表-->
+          <exclusions>
+              <!--排除部分不需要的依赖-->
+              <exclusion></exclusion>
+          </exclusions>
+      </dependency>
+  </dependencies>
+
+  <!--三、依赖的管理:定义父模块的jar包便于子模块的继承-->
+  <dependencyManagement>
+      <dependencies>
+        <dependency></dependency>
+      </dependencies>
+  </dependencyManagement>
+
+  <!--四、插件列表:需指定插件的坐标-->
+  <build>
+      <plugin>
+          <groupId></groupId>
+          <artifactId></artifactId>
+          <version></version>
+      </plugin>
+  </build>
+
+  <!--五、用于子模块对于父模块pom的继承-->
+  <parent></parent>
+
+  
+  <!--六、指定多个模块，可同时编译等操作-->
+  <modules></modules>
+</project>
+```
+scope应用范围有test、compile等等，默认是compile，那么test和compile有什么区别呢？
+
+间接依赖问题 ：依赖的jar包必须是 compile 范围，假如是test范围，则发布的jar包不会包含test范围依赖的jar包，和依赖关系<scope>test</scope>。
+
+转载：
+- https://zhuanlan.zhihu.com/p/34316460
+- https://my.oschina.net/zjllovecode/blog/1789907
+---
+string,stringbuilder,stringbuffer
+
+
+
+
