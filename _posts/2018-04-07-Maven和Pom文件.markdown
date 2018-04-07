@@ -37,9 +37,9 @@ groupId + artifactId+ version
 ##### jar包组成： 
 artifactId-version.jar
 ##### pom.xml
-<img class="shadow" src="/blog/img/pom.jpg" width="260">
-<img class="shadow" src="/blog/img/pom1.jpg" width="260">
-<img class="shadow" src="/blog/img/pom2.jpg" width="260">
+<img class="shadow" src="/blog/img/pom.jpg" width="780" height="780">
+<img class="shadow" src="/blog/img/pom1.jpg" width="780" height="780">
+<img class="shadow" src="/blog/img/pom2.jpg" width="780" height="780">
 
 scope应用范围有test、compile等等，默认是compile，那么test和compile有什么区别呢？
 
