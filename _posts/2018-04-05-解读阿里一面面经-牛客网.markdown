@@ -37,9 +37,8 @@ Maven依赖选取原则：
 
 ---
 
-pom.xml中有哪些配置？
+- [pom.xml中有哪些配置？](https://tfl435918939.github.io/blog/2018/04/07/Maven%E5%92%8CPom%E6%96%87%E4%BB%B6/)
 
+- [谈谈String,StringBuilder,StringBuffer](https://tfl435918939.github.io/blog/2018/04/07/String-StringBuffer-StringBuilder/)
 
-
-谈谈String,StringBuilder,StringBuffer
-[JVM内存模型](https://tfl435918939.github.io/blog/2018/04/07/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/)
+- [JVM内存模型](https://tfl435918939.github.io/blog/2018/04/07/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/)

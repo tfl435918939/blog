@@ -37,85 +37,9 @@ groupId + artifactId+ version
 ##### jar包组成： 
 artifactId-version.jar
 ##### pom.xml
-```
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <!-- 指定当前pom的版本 -->
-  <modelVersion>4.0.0</modelVersion>
-  
-  <!-- 一、项目的坐标信息-->
-  <groupId>反写的公司网址+项目名</groupId>
-  <artifactId>项目名+模块名</artifactId>
-  <!--
-    第一个o:大版本:号
-    第二个0：分支版本号
-    第三个0：小版本号
-    版本类型划分：1.SNAPSHOT(快照) 
-                  2.alpha（内测）
-                  3.beta（公测）
-                  4.Release（稳定）
-                  5.GA（正式）
-  -->
-  <version>0.0.1SNAPSHOT</version>
-  <!--maven项目打包方式：默认：jar，可指定war、zip、pom--->
-  <packaging></packaging>
-  <!--项目描述名-->
-  <name></name>
-  <!--项目地址-->
-  <url></url>
-  <!--项目描述-->
-  <description></description>
-  <!--开发人员信息-->
-  <developers></developers>
-  <!--许可证信息-->
-  <licenses></licenses>
-  <!--组织信息-->
-  <organization></organization>
-
-  <!--二、依赖列表-->
-  <dependencies>
-      <!--依赖坐标-->
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.10</version>
-          <type></type>
-          <!-- 依赖范围：test-->
-          <scope>test</scope>
-          <!--设置依赖是否可选:true/false默认是后者-->
-          <optional>false</optional>
-          <!--排除依赖传递列表-->
-          <exclusions>
-              <!--排除部分不需要的依赖-->
-              <exclusion></exclusion>
-          </exclusions>
-      </dependency>
-  </dependencies>
-
-  <!--三、依赖的管理:定义父模块的jar包便于子模块的继承-->
-  <dependencyManagement>
-      <dependencies>
-        <dependency></dependency>
-      </dependencies>
-  </dependencyManagement>
-
-  <!--四、插件列表:需指定插件的坐标-->
-  <build>
-      <plugin>
-          <groupId></groupId>
-          <artifactId></artifactId>
-          <version></version>
-      </plugin>
-  </build>
-
-  <!--五、用于子模块对于父模块pom的继承-->
-  <parent></parent>
-
-  
-  <!--六、指定多个模块，可同时编译等操作-->
-  <modules></modules>
-</project>
-```
+<img class="shadow" src="/blog/img/pom.jpg" width="260">
+<img class="shadow" src="/blog/img/pom1.jpg" width="260">
+<img class="shadow" src="/blog/img/pom2.jpg" width="260">
 
 scope应用范围有test、compile等等，默认是compile，那么test和compile有什么区别呢？
 
