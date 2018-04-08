@@ -31,7 +31,7 @@ Maven可以管理项目的整个声明周期，包括清除、编译，测试，
 #### pom文件：
 ##### 坐标的组成： 
 groupId + artifactId+ version
-- groupId：组id ,机构名，公司名：好比公司的id，或者是公司包名 alibaba ——-》高德--》5.01版本
+- groupId：组id ,机构名，公司名：好比公司的id，或者是公司包名 alibaba ——> 高德——> 5.01版本
 - artifactId：构建物id ，产品名或者产品的id
 - version ：版本号
 ##### jar包组成： 
@@ -43,7 +43,7 @@ artifactId-version.jar
 
 scope应用范围有test、compile等等，默认是compile，那么test和compile有什么区别呢？
 
-间接依赖问题 ：依赖的jar包必须是 compile 范围，假如是test范围，则发布的jar包不会包含test范围依赖的jar包，和依赖关系<scope>test</scope>。
+间接依赖问题 ：依赖的jar包必须是 compile 范围，假如是test范围``<scope>test</scope>``，则发布的jar包不会包含test范围依赖的jar包，和依赖关系。
 
 转载：
 - https://zhuanlan.zhihu.com/p/34316460
