@@ -159,6 +159,15 @@ public static ExecutorService newCachedThreadPool() {
 ### 阻塞队列
 阻塞队列是一个在队列基础上又支持了两个附加操作的队列。
 
+JDK 7提供了7个阻塞队列：(并发容器)
+ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
+LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。
+PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
+DelayQueue：一个使用优先级队列实现的无界阻塞队列。
+SynchronousQueue：一个不存储元素的阻塞队列。
+LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
+LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
+
 2个附加操作：
 
 支持阻塞的插入方法：队列满时，队列会阻塞插入任务的线程，直到队列不满。
