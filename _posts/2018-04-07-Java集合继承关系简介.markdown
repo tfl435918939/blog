@@ -111,6 +111,6 @@ Map不是Collection的子接口或实现类。Map是一个接口。Map的每个E
 
 较小的负载因子将占用更多的空间，但将降低冲突的可能性，从而将加快访问和更新的速度。使用较大的负载因子会增加冲突的几率。 
 
-### HashMap
+### [HashMap](https://lujunqiu.github.io/2018/01/07/%E7%9C%8B%E7%9C%8BHashMap%E6%BA%90%E7%A0%81/)
 ### ConcurrentHashMap
 ### TreeMap
