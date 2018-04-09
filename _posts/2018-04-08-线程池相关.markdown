@@ -12,8 +12,6 @@ tags:
 
 > “Anyway, anyhow. ”
 
-[本文参考文献：Java集合-ConcurrentHashMap工作原理和实现JDK8](https://www.jianshu.com/p/85d158455861)
-
 ### 使用 Executors 创建线程池
 我们先来看看ThreadPoolExecutor参数最全的构造方法：
 ```
