@@ -7,7 +7,7 @@ author:     "Leon"
 header-img: "img/2018-04-03-posts-bg.jpg"
 catalog: true
 tags:
-    - Java
+    - 并发
 ---
 
 > “Anyway, anyhow. ”
