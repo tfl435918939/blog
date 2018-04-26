@@ -1,0 +1,51 @@
+---
+layout:     post
+title:      "蒙特蒙特卡洛树搜索伪码"
+subtitle:   " \"人生就像一场马拉松，跑到最后才是赢家。\""
+date:       2018-04-26 21:23:00
+author:     "Leon"
+header-img: "img/2018-04-03-posts-bg.jpg"
+catalog: true
+tags:
+    - 算法
+---
+
+> “Anyway, anyhow. ”
+
+
+## 伪码解析
+```
+//蒙特卡洛树搜索
+def monte_carlo_tree_search(root):
+    //检查资源是否剩余：时间，计算能力
+    while resources_left(time, computational power):
+        leaf = traverse(root) # leaf = unvisited node 
+        simulation_result = rollout(leaf)
+        backpropagate(leaf, simulation_result)
+    return best_child(root)
+def traverse(node):
+    //判断节点是否完全展开
+    while fully_expanded(node):
+        //选择节点中uct最高的子节点（你看看uct具体是个什么东西）
+        node = best_uct(node)
+    //如果节点未被完全展开，调用pick_unvisited(node.children)；如果节点是叶子结点则直接返回
+    return pick_unvisited(node.children) or node # in case no children are present / node is terminal 
+//将节点展开
+def rollout(node):
+    //判断是否是终端节点
+    while non_terminal(node):
+        //如果不是终端节点则进行递归寻找终端节点
+        node = rollout_policy(node)
+    //计算终端节点的值（查查是什么值）
+    return result(node) 
+def rollout_policy(node):
+    return pick_random(node.children)
+//将终端节点的值反向传播到root节点
+def backpropagate(node, result):
+   if is_root(node) return 
+   node.stats = update_stats(node, result) 
+   backpropagate(node.parent)
+//选择访问次数最高的子节点
+def best_child(node):
+    pick child with highest number of visits
+```
