@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "蒙特蒙特卡洛树搜索伪码"
+title:      "蒙特卡洛树搜索伪码解析"
 subtitle:   " \"人生就像一场马拉松，跑到最后才是赢家。\""
 date:       2018-04-26 21:23:00
 author:     "Leon"
